@@ -90,7 +90,7 @@ export default function RecipeReviewCard() {
     setIsLoading(true)
     let headers = new Headers()
     let actualUrl = url.concat(localStorage.getItem('current_email'))
-    headers.append('Origin', 'https://nervous-keller-210d06.netlify.app/')
+    headers.append('Origin', 'http//nervous-keller-210d06.netlify.app')
 
     fetch(actualUrl, {
       mode: 'cors',
