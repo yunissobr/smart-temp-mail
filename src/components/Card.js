@@ -81,7 +81,7 @@ export default function SimpleCard() {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({
-        mail_to: emailInput + '@smarttempmail.com',
+        mail_to: emailInput + '@obrdev.ga',
         mail_from: '',
         subject: '',
         message: '',
@@ -96,10 +96,10 @@ export default function SimpleCard() {
           setIsError(false)
           setShowAlert(true)
           setAlertMsg('Email Created Successfully')
-          setCurrentMail(emailInput + '@smarttempmail.com')
+          setCurrentMail(emailInput + '@obrdev.ga')
           localStorage.setItem(
             'current_email',
-            emailInput + '@smarttempmail.com'
+            emailInput + '@obrdev.ga'
           )
         }
       })
@@ -179,7 +179,7 @@ export default function SimpleCard() {
                           ? {
                               endAdornment: (
                                 <InputAdornment position='end'>
-                                  @smarttempmail.com
+                                  @obrdev.ga
                                 </InputAdornment>
                               ),
                             }
