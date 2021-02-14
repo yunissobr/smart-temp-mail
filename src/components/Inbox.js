@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const url = 'https://www.smarttempmail.com/azull/api/read/'
+const url = 'https://www.yuniss.com/azull/api/read/'
 
 export default function RecipeReviewCard() {
   const classes = useStyles()
@@ -90,18 +90,20 @@ export default function RecipeReviewCard() {
     setIsLoading(true)
     let headers = new Headers()
     let actualUrl = url.concat(localStorage.getItem('current_email'))
-    headers.append('Origin', 'http//nervous-keller-210d06.netlify.app')
-
+    headers.append('Origin', '*')
     fetch(actualUrl, {
       mode: 'cors',
       method: 'POST',
       mode: 'no-cors',
       headers: headers,
     })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json.data)
-        setMails(json.data)
+      .then((response) => {
+        console.log(JSON.parse(response.text()))
+        return response.text()
+      })
+      .then((data) => {
+        // console.log(json.data)
+        setMails(data ? JSON.parse(data) : {})
         setIsLoading(false)
       })
       .catch((error) => {

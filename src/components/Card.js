@@ -16,8 +16,8 @@ import Alert from '@material-ui/lab/Alert'
 
 import Snackbar from '@material-ui/core/Snackbar'
 
-const url = 'https://www.smarttempmail.com/azull/api/read/'
-const urlCreate = 'https://www.smarttempmail.com/azull/api/create'
+const url = 'https://www.yuniss.com/azull/api/read/'
+const urlCreate = 'https://www.yuniss.com/azull/api/create'
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
