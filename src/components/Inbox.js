@@ -90,20 +90,18 @@ export default function RecipeReviewCard() {
     setIsLoading(true)
     let headers = new Headers()
     let actualUrl = url.concat(localStorage.getItem('current_email'))
-    headers.append('Origin', '*')
+    // headers.append('Origin', 'http://localhost:3000/')
     fetch(actualUrl, {
       mode: 'cors',
       method: 'POST',
-      mode: 'no-cors',
       headers: headers,
     })
       .then((response) => {
-        console.log(JSON.parse(response.text()))
-        return response.text()
+        // console.log(JSON.parse(response.text()))
+        return response.json()
       })
       .then((data) => {
-        // console.log(json.data)
-        setMails(data ? JSON.parse(data) : {})
+        setMails(data.data)
         setIsLoading(false)
       })
       .catch((error) => {
