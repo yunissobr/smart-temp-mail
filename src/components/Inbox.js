@@ -95,6 +95,7 @@ export default function RecipeReviewCard() {
     fetch(actualUrl, {
       mode: 'cors',
       method: 'POST',
+      mode: 'no-cors',
       headers: headers,
     })
       .then((response) => response.json())
