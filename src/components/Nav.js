@@ -32,12 +32,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar() {
   const classes = useStyles()
 
-  React.useEffect(() => {
-    ;(window.adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: 'ca-pub-2677969961456811',
-      enable_page_level_ads: true,
-    })
-  }, [])
+
 
   return (
     <div className={classes.root}>
