@@ -37,6 +37,8 @@ function App() {
             <Route exact path='/'>
               <Card />
               <Inbox />
+              <About />
+              <Faq />
             </Route>
             <Route exact path='/faq'>
               <Faq />
