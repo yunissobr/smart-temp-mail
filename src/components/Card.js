@@ -13,7 +13,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import DraftsIcon from '@material-ui/icons/Drafts'
 import Alert from '@material-ui/lab/Alert'
-
+import emailId from '../constants/EmailId'
 import Snackbar from '@material-ui/core/Snackbar'
 
 const url = 'https://www.yuniss.com/azull/api/read/'
@@ -81,7 +81,7 @@ export default function SimpleCard() {
       method: 'POST',
       headers: headers,
       body: JSON.stringify({
-        mail_to: emailInput + '@obrdev.ga',
+        mail_to: emailInput + emailId,
         mail_from: '',
         subject: '',
         message: '',
@@ -96,11 +96,8 @@ export default function SimpleCard() {
           setIsError(false)
           setShowAlert(true)
           setAlertMsg('Email Created Successfully')
-          setCurrentMail(emailInput + '@obrdev.ga')
-          localStorage.setItem(
-            'current_email',
-            emailInput + '@obrdev.ga'
-          )
+          setCurrentMail(emailInput + emailId)
+          localStorage.setItem('current_email', emailInput + emailId)
         }
       })
       .catch((error) => {
@@ -132,6 +129,11 @@ export default function SimpleCard() {
 
   const handleClose = () => {
     setShowAlert(false)
+  }
+
+  const handleDelete = () => {
+    localStorage.clear()
+    window.location.reload()
   }
 
   React.useEffect(() => {
@@ -179,7 +181,7 @@ export default function SimpleCard() {
                           ? {
                               endAdornment: (
                                 <InputAdornment position='end'>
-                                  @obrdev.ga
+                                  {emailId}
                                 </InputAdornment>
                               ),
                             }
@@ -208,7 +210,7 @@ export default function SimpleCard() {
           </CardContent>
           <CardActions>
             <Button
-              onClick={() => window.location.reload(false)}
+              onClick={() => window.location.reload()}
               variant='contained'
               color='primary'
               size='small'
@@ -217,15 +219,18 @@ export default function SimpleCard() {
             >
               Update Inbox
             </Button>
-            <Button
-              size='small'
-              variant='contained'
-              color='secondary'
-              className={classes.button}
-              startIcon={<DeleteIcon />}
-            >
-              Delete
-            </Button>
+            {currentMail !== '' ? (
+              <Button
+                size='small'
+                variant='contained'
+                color='secondary'
+                onClick={handleDelete}
+                className={classes.button}
+                startIcon={<DeleteIcon />}
+              >
+                Delete
+              </Button>
+            ) : null}
           </CardActions>
         </div>
       </Card>

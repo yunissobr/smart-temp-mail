@@ -77,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
     color: '#14446e9e',
     marginTop: '10px',
   },
+  inboxContainer: {
+    padding: '1rem 1rem',
+  },
 }))
 
 const url = 'https://www.yuniss.com/azull/api/read/'
@@ -133,11 +136,21 @@ export default function RecipeReviewCard() {
               </div>
             </>
           ) : mails.length > 1 ? (
-            mails.map((item) => {
-              if (item.mail_from !== '') {
-                return <SingleMail key={item.id} mailItem={item} />
-              }
-            })
+            <div className={classes.inboxContainer}>
+              <Typography
+                variant='h5'
+                component='h2'
+              >
+                Your messages
+              </Typography>
+              {
+              mails.map((item) => {
+                if (item.mail_from !== '') {
+                  return <SingleMail key={item.id} mailItem={item} />
+                }
+              })
+            }
+            </div>
           ) : (
             <div className={classes.iconDraftContainer}>
               <img src={Box} className={classes.iconDraft} />

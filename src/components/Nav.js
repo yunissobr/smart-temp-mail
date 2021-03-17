@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 import { Link } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton'
 // import MenuIcon from '@material-ui/icons/Menu';
+import logo from '../logo1.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,12 +28,14 @@ const useStyles = makeStyles((theme) => ({
     color: '#fff',
     textDecoration: 'none',
   },
+  logo: {
+    marginTop: '10px',
+    width: '120px',
+  },
 }))
 
 export default function ButtonAppBar() {
   const classes = useStyles()
-
-
 
   return (
     <div className={classes.root}>
@@ -44,9 +47,10 @@ export default function ButtonAppBar() {
             color='inherit'
             aria-label='menu'
           ></IconButton>
-          <Typography variant='h6' className={classes.title}>
-            STMAIL
-          </Typography>
+          <Link to='/' className={classes.link}>
+            <img src={logo} className={classes.logo} alt='fireSpot' />
+          </Link>
+          <Typography variant='h6' className={classes.title}></Typography>
           <Link to='/' className={classes.link}>
             <Button color='inherit'>HOME</Button>
           </Link>
