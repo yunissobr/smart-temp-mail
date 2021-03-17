@@ -51,9 +51,9 @@ export default function ButtonAppBar() {
             <img src={logo} className={classes.logo} alt='fireSpot' />
           </Link>
           <Typography variant='h6' className={classes.title}></Typography>
-          <Link to='/' className={classes.link}>
+          {/* <Link to='/' className={classes.link}>
             <Button color='inherit'>HOME</Button>
-          </Link>
+          </Link> */}
           <Link to='/faq' className={classes.link}>
             <Button color='inherit'>FAQ</Button>
           </Link>
